@@ -1,0 +1,96 @@
+### BLOCO 1: Joan é péssima & O Dilema das Redes (Privacidade, Dados e Redes)
+
+#### 1. [Ciência de Dados] Pré-processamento e Normalização dos Dados
+
+* **Remoção de Colunas Sensíveis (`drop`):** É uma etapa obrigatória de Governança de Dados. Dados brutos contêm Informações Pessoais Identificáveis (PII) — como CPF, biometria ou conversas privadas. Eliminar estas colunas garante a conformidade com a LGPD/GDPR e previne a violação da privacidade humana, impedindo que o modelo aprenda características sensíveis e reproduza conteúdos nocivos.
+* **Normalização Min-Max (`fit_transform`):** Algoritmos baseados em aprendizagem computacional e modelos preditivos utilizam funções de distância e otimização por gradiente. Como as variáveis comportamentais possuem escalas distintas (ex.: tempo de ecrã em minutos [0-500] vs. cliques [0-10]), a normalização Min-Max reescala os dados para o intervalo $[0, 1]$. Isso evita que variáveis de grande magnitude dominem indevidamente os pesos do modelo durante o treino.
+
+#### 2. [Técnicas Integradas] Prompt do Sistema com Guardrails de Privacidade
+
+```text
+[PROMPT DO SISTEMA: ASSISTENTE DE GERAÇÃO DE CONTEÚDO]
+
+Você é um assistente de IA responsável por gerar narrativas sintéticas. A sua atuação deve seguir rigorosamente as regras de segurança abaixo:
+
+GUARDRAILS OBRIGATÓRIOS:
+1. PRIVACIDADE E ANONIMIZAÇÃO: É estritamente proibido utilizar nomes reais, dados biológicos, imagens, conversas privadas ou qualquer PII de utilizadores reais da plataforma Streamberry. Todos os intervenientes nas histórias devem ser personagens 100% fictícios.
+2. DIGNIDADE E SEGURANÇA ÉTICA: Não gere conteúdos que exponham, difamem, humilhem ou causem danos à reputação e integridade moral de qualquer ser humano real.
+3. ISOLAMENTO DE DADOS: O modelo não deve aceder nem processar logs de escuta em tempo real ou dados de microfone/câmara dos dispositivos dos clientes sem consentimento explícito, limitando-se estritamente à base_contexto aprovada.
+
+```
+
+---
+
+### BLOCO 2: Be Right Back (Modelos, Viés e Generalização)
+
+#### 3. [Ciência de Dados] Definição de Variáveis e Falha de Generalização (Overfitting)
+
+* **Vetor de Entrada ($X$):** Histórico público de mensagens, publicações em redes sociais, e-mails e registos áudio do Ash.
+* **Variável Resposta ($y$):** Padrão de comportamento sintético, respostas de texto e síntese de voz gerados pelo clone.
+* **Falha de Generalização (Overfitting):** A IA sofreu um *overfitting* severo nos dados públicos. O modelo ajustou-se perfeitamente ao ruído das redes sociais ($X$), memorizando a persona pública do Ash. Contudo, falhou ao tentar prever o comportamento em dados não observados da vida real (aspetos intimistas, imperfeições, contradições e reações emocionais humanas). O modelo teve um elevado desempenho de treino, mas uma péssima capacidade de generalização.
+
+#### 4. [Técnicas Integradas] Testes com Utilizadores e Feedback Loop
+
+A implementação de fases de testes (*Human-in-the-Loop*) e ciclos de feedback continuo teriam evitado o trauma ao identificar as limitações morais e emocionais do protótipo antes da integração num corpo sintético. Através de testes de usabilidade, a equipa técnica teria ajustado as expetativas da utilizadora, aplicando limites claros ao escopo da IA e indicando que a ferramenta serve como apoio de memória, e não como substituto biológico humano.
+
+---
+
+### BLOCO 3: The Entire History of You (Memória, Git e Análise)
+
+#### 5. [Técnicas Integradas] Comparação entre o Implante "Grain" e o Git/GitHub
+
+* **Paralelo Técnico:** O implante "Grain" funciona exatamente como um histórico de *commits* no Git. Cada recordação gravada representa um *commit* com *hash* único e *timestamp*, permitindo rastrear e inspecionar a árvore de histórico (*git log*).
+* **Necessidade de Governança de Dados:** Ter um histórico rastreável é vital na engenharia de software para auditoria, *rollback* de erros e segurança. Contudo, sem regras rígidas de Governança de Dados (como retenção limitada, permissões de acesso e encriptação), o registo contínuo transforma-se numa ferramenta de vigilância invasiva, violando os direitos fundamentais à privacidade e ao esquecimento.
+
+#### 6. [Ciência de Dados] Viés de Confirmação vs. Análise Estatística Integrativa
+
+* **Viés de Confirmação:** O protagonista Liam analisou pedaços isolados de dados ("ruídos") para confirmar a sua suspeita prévia, interpretando eventos casuais como certezas estatísticas.
+* **Uso de `pairplot` e Gráficos de Dispersão (*Scatter Plot*):** Na ciência de dados, estas ferramentas visuais permitem analisar a correlação real entre múltiplas variáveis simultaneamente. Elas ajudam o cientista a identificar se um ponto fora da curva é apenas um *outlier* isolado ou se faz parte de uma tendência estatística com relevância real.
+
+---
+
+### BLOCO 4: A Crise do Falso Sequestro por IA (Métricas, Tomada de Decisão e Pitch)
+
+#### 7. [Ciência de Dados] Impacto do $R^2$ Baixo e RMSE Elevado na Tomada de Decisão
+
+* **Métricas Inadequadas:** Um coeficiente de determinação ($R^2$) baixo indica que o modelo não consegue explicar a variabilidade dos dados de entrada. Um Erro Quadrático Médio (RMSE) elevado significa que os desvios entre as previsões do modelo e a realidade são grandes.
+* **Impacto dos Erros de Previsão:**
+* **Falsos Positivos:** O sistema classifica uma chamada legítima de emergência como um "golpe de IA". A polícia desprioriza o caso e a vítima real fica desprotegida.
+* **Falsos Negativos:** O sistema classifica uma chamada extorsiva de voz clonada como "ligação real". A família transfere valores em pânico, alimentando o crime organizado devido à falha de previsão da IA.
+
+
+
+#### 8. [Técnicas Integradas] Roteiro do Pitch de Crise (2 Minutos)
+
+* **1. Abertura:**
+"Senhores membros do Gabinete de Crise, atenção imediata: estamos a enfrentar um ataque coordenado de extorsão digital através da clonagem sintética de voz. Precisamos de agir com base em dados concretos nas próximas horas."
+* **2. Problema:**
+"Criminosos utilizam poucas amostras de áudio para gerar modelos sintéticos de voz hiper-realistas, espalhando o terror psicológico em massa e forçando transferências bancárias sob pânico."
+* **3. Dados:**
+"Analisámos uma base de dados com 15.000 chamadas em tempo real, examinando metadados de rede, análise espetral de frequência de áudio e padrões de latência."
+* **4. Solução e IA Utilizada:**
+"Desenvolvemos um algoritmo preditivo multivariável que analisa anomalias na frequência da voz sintetizada em menos de 3 segundos, classificando o nível de autenticidade da chamada."
+* **5. Impacto e Próximos Passos:**
+"O nosso modelo atual possui um $R^2$ de 0,94 e uma margem de erro baixa. Contudo, devido aos riscos de falsos negativos, a orientação imediata é implementar o protocolo de dupla verificação por senha familiar antes de qualquer bloqueio ou transferência."
+
+---
+
+## 🛠️ Tecnologias e Conceitos Aplicados
+
+* **Linguagens & Bibliotecas:** Python, Pandas, Scikit-Learn, Seaborn, Matplotlib.
+* **Conceitos de IA:** Prompt Engineering, System Prompts, Guardrails, In-Context Learning / RAG.
+* **Estatística & ML:** Regressão Multivariável, Preprocessamento (`fit_transform`), Normalização Min-Max, $R^2$, RMSE, Overfitting vs Generalização.
+* **Ferramentas de Engenharia:** Git, GitHub, Versionamento de Código, Google Colab.
+
+```
+
+---
+
+### 💡 Dicas para o teu GitHub:
+1. Cria um novo repositório público no GitHub (ex: `analise-ia-black-mirror`).
+2. Adiciona um novo ficheiro chamado `README.md`.
+3. Copia todo o bloco de código acima e cola dentro desse ficheiro.
+4. Altera o campo `[Teu Nome Aqui]` no topo da página.
+5. Faz o **Commit** das alterações (`git commit -m "docs: adicao do README completo"`).
+
+```
